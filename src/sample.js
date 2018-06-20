@@ -1,5 +1,5 @@
-//关系信息
-var msg = {
+// 关系信息
+const msg = {
   name: '华谊兄弟',
   children: [
     {
@@ -583,21 +583,21 @@ var msg = {
   ],
 };
 
-export const data = {
+const data = {
   edges: [],
   nodes: [],
 };
 
-var arr = [];
-var resultArr = [];
+const initArr = [];
+let resultArr = [];
 
 // 去重函数
 function trim(arr) {
-  var resultArr = [];
+  const trimArr = [];
   arr.forEach(item => {
-    !resultArr.includes(item) && resultArr.push(item);
+    !trimArr.includes(item) && trimArr.push(item);
   });
-  return resultArr;
+  return trimArr;
 }
 
 // 递归遍历msg
@@ -606,11 +606,11 @@ function traverseTree(node) {
     return;
   }
 
-  arr.push(node.name);
-  resultArr = trim(arr);
+  initArr.push(node.name);
+  resultArr = trim(initArr);
   if (node.children && node.children.length > 0) {
-    var i = 0;
-    for (i = 0; i < node.children.length; i++) {
+    let i = 0;
+    for (i = 0; i < node.children.length; i+=1) {
       traverseTree(node.children[i]);
       data.edges.unshift({
         id: data.edges.length,
@@ -630,3 +630,5 @@ data.nodes = resultArr.map(item => ({
   name: item,
   weight: 1,
 }));
+
+export default data;
