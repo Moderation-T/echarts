@@ -56,7 +56,12 @@
         "specialLink": ["hrefLeft", "hrefRight"],
         "aspects": ["noHref", "invalidHref", "preferButton"]
       }
-    ]
+    ],
+    "react/prop-types": [
+      "enabled",
+      { "ignore": "ignore", "customValidators": "customValidator" }
+    ],
+    "class-methods-use-this": 0
   },
   "globals": {
     "window": true,
