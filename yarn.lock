@@ -2328,12 +2328,12 @@ ecc-jsbn@~0.1.1:
   dependencies:
     jsbn "~0.1.0"
 
-echarts-for-react@^2.0.12:
-  version "2.0.12"
-  resolved "http://registry.npm.taobao.org/echarts-for-react/download/echarts-for-react-2.0.12.tgz#a3c9f0ca52bd615c60aeddca4fa9f397016a8945"
+echarts-for-react@^2.0.14:
+  version "2.0.14"
+  resolved "http://registry.npm.taobao.org/echarts-for-react/download/echarts-for-react-2.0.14.tgz#6df7a31eea43ef35321e20a5854109cbc52c9df3"
   dependencies:
     fast-deep-equal "^2.0.1"
-    size-sensor "^0.0.2"
+    size-sensor "^0.2.0"
 
 echarts@^4.1.0:
   version "4.1.0"
@@ -6606,9 +6606,9 @@ signal-exit@^3.0.0, signal-exit@^3.0.2:
   version "3.0.2"
   resolved "http://registry.npm.taobao.org/signal-exit/download/signal-exit-3.0.2.tgz#b5fdc08f1287ea1178628e415e25132b73646c6d"
 
-size-sensor@^0.0.2:
-  version "0.0.2"
-  resolved "http://registry.npm.taobao.org/size-sensor/download/size-sensor-0.0.2.tgz#69a504b49cb3338ff9a2acc495f935a24a462518"
+size-sensor@^0.2.0:
+  version "0.2.1"
+  resolved "http://registry.npm.taobao.org/size-sensor/download/size-sensor-0.2.1.tgz#e0f7351816a12cd8ba33475aa964112d1cf75439"
 
 slash@^1.0.0:
   version "1.0.0"
@@ -7711,6 +7711,6 @@ yargs@~3.10.0:
     decamelize "^1.0.0"
     window-size "0.1.0"
 
-zrender@4.0.4:
+zrender@4.0.4, zrender@^4.0.4:
   version "4.0.4"
   resolved "http://registry.npm.taobao.org/zrender/download/zrender-4.0.4.tgz#910e60d888f00c9599073f23758dd23345fe48fd"

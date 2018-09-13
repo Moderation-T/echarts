@@ -1,10 +1,18 @@
+// 此柱状图的相关数据写在了model的result中
+
 import React, { Component } from 'react';
 import { connect } from 'dva';
 
 import echarts from 'echarts/lib/echarts';
+// 这里config中用到啥就要引用啥别忘了，要不然不起效果啦
+// 引入柱状图
 import 'echarts/lib/chart/bar';
+// 引入图例
 import 'echarts/lib/component/legend';
+// 引入提示框
 import 'echarts/lib/component/tooltip';
+// 引入工具箱
+import 'echarts/lib/component/toolbox';
 
 export class BarReact extends Component {
   componentDidMount() {
@@ -38,7 +46,7 @@ export class BarReact extends Component {
     ];
 
     const config = {
-      // 工具提示
+      // 工具提示 也就是鼠标放上的提示框
       tooltip: {
         /*
          // trigger 触发类型
@@ -105,7 +113,7 @@ export class BarReact extends Component {
             // 调整x轴的lable
             // interval: 0,//标签设置为全部显示
            
-            // 横坐标文字过长显示不开的问题
+            // 解决横坐标文字过长显示不全的问题
             formatter(params) {
               let newParamsName = ''; // 最终拼接成的字符串
               const paramsNameNumber = params.length; // 实际标签的个数
