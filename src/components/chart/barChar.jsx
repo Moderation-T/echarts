@@ -7,6 +7,8 @@ import echarts from 'echarts/lib/echarts';
 // 这里config中用到啥就要引用啥别忘了，要不然不起效果啦
 // 引入柱状图
 import 'echarts/lib/chart/bar';
+// 引入折线图
+import 'echarts/lib/chart/line';
 // 引入图例
 import 'echarts/lib/component/legend';
 // 引入提示框
@@ -44,6 +46,26 @@ export class BarReact extends Component {
       '#ffa500',
       '#40e0d0',
     ];
+
+    // 柱状图数据
+    const seriesBar = year.map(item => ({
+      name: Object.keys(item)[0], // 对应图例名称
+      type: 'bar', // 展示类型
+      data: Object.values(item)[0], // 数据值
+      // itemStyle: // 样式
+    }));
+
+    // 折线图数据
+    const seriesLine = year.map(item => ({
+      name: Object.keys(item)[0], // 对应图例名称
+      type: 'line', // 展示类型
+      data: Object.values(item)[0], // 数据值
+      // itemStyle: // 样式
+    }));
+
+    // 两个图的合并数据
+    const seriesData = [...seriesBar,...seriesLine];
+
 
     const config = {
       // 工具提示 也就是鼠标放上的提示框
@@ -170,12 +192,9 @@ export class BarReact extends Component {
           },
         },
       ],
-      series: year.map(item => ({
-        name: Object.keys(item)[0], // 对应图例名称
-        type: 'bar', // 展示类型
-        data: Object.values(item)[0], // 数据值
-        // itemStyle: // 样式
-      })),
+      series: seriesData,
+      // series: seriesBar,
+      // series: seriesLine,
 
       /*
       // series 展开长成下边这样
