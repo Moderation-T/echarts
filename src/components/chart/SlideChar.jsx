@@ -7,17 +7,16 @@ import echarts from 'echarts/lib/echarts';
 // 这里config中用到啥就要引用啥别忘了，要不然不起效果啦
 // 引入柱状图
 import 'echarts/lib/chart/bar';
-// 引入折线图
-import 'echarts/lib/chart/line';
 // 引入图例
 import 'echarts/lib/component/legend';
 // 引入提示框
 import 'echarts/lib/component/tooltip';
 // 引入工具箱
 import 'echarts/lib/component/toolbox';
+// 引入滚动条
 import 'echarts/lib/component/dataZoom';
 
-export class BarReact extends Component {
+export  class SlideChar extends Component {
   componentDidMount() {
     // 初始化数据
     const { chart } = this.props.result.msg;
@@ -55,17 +54,6 @@ export class BarReact extends Component {
       data: Object.values(item)[0], // 数据值
       // itemStyle: // 样式
     }));
-
-    // 折线图数据
-    const seriesLine = year.map(item => ({
-      name: Object.keys(item)[0], // 对应图例名称
-      type: 'line', // 展示类型
-      data: Object.values(item)[0], // 数据值
-      // itemStyle: // 样式
-    }));
-
-    // 两个图的合并数据
-    const seriesData = [...seriesBar, ...seriesLine];
 
     const config = {
       // 工具提示 也就是鼠标放上的提示框
@@ -174,21 +162,14 @@ export class BarReact extends Component {
         },
       ],
       dataZoom: {
-        show: true,
-        realtime: true,
-        // orient: 'vertical',   // 'horizontal'
-        // x: 0,
-        y: 36,
-        // width: 400,
-        height: 20,
-        // backgroundColor: 'rgba(221,160,221,0.5)',
-        // dataBackgroundColor: 'rgba(138,43,226,0.5)',
-        // fillerColor: 'rgba(38,143,26,0.6)',
-        // handleColor: 'rgba(128,43,16,0.8)',
-        // xAxisIndex:[],
-        // yAxisIndex:[],
-        start: 40,
-        end: 60,
+        type: 'slider',
+      show: true,
+      xAxisIndex: [0],
+      left: '9%',
+      bottom: -5,
+      start: 10,
+      end: 90 // 初始化滚动条
+
       },
 
       // y轴设置
@@ -209,10 +190,7 @@ export class BarReact extends Component {
           },
         },
       ],
-      series: seriesData, // 展现折线图&&柱状图
-      // series: seriesBar, // 只展示柱状图
-      // series: seriesLine, // 只展示折线图
-
+      series: seriesBar, 
       /*
       // series 展开长成下边这样
        series: [
@@ -250,7 +228,7 @@ export class BarReact extends Component {
   render() {
     return (
       <div>
-        <div id="main" style={{ width: '450px', height: '350px' }} />
+        <div id="main" style={{ width: '600px', height: '400px' }} />
       </div>
     );
   }
@@ -258,4 +236,4 @@ export class BarReact extends Component {
 
 export default connect(({ result }) => ({
   result,
-}))(BarReact);
+}))(SlideChar);
