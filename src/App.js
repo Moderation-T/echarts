@@ -5,7 +5,8 @@ import React from 'react';
 // 树状图
 // import TreeChart from './components/chart/treeChar';
 // 可滑动柱状图
-import SlideChar from './components/chart/SlideChar';
+import SlideChar from './components/chart/slideChar';
+// import SwitchChar from './components/chart/switchChar';
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
       {/* <Barchart /> */}
       {/* <TreeChart /> */}
       <SlideChar /> 
+      {/* <SwitchChar />  */}
     </div>
   );
 }
