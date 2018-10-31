@@ -5,17 +5,18 @@ import React from 'react';
 // 树状图
 // import TreeChart from './components/chart/treeChar';
 // 可滑动柱状图
-import SlideChar from './components/chart/slideChar';
+// import SlideChar from './components/chart/slideChar';
 // import SwitchChar from './components/chart/switchChar';
-
+import QiaoChangChar from './components/chart/qiaochangChar';
 
 function App() {
   return (
     <div>
       {/* <Barchart /> */}
       {/* <TreeChart /> */}
-      <SlideChar /> 
+      {/* <SlideChar />  */}
       {/* <SwitchChar />  */}
+      <QiaoChangChar />
     </div>
   );
 }

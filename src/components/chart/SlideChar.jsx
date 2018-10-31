@@ -105,7 +105,7 @@ export class SlideReact extends Component {
           dataView: { show: true, readOnly: false },
           restore: { show: true },
           saveAsImage: { show: true },
-          magicType : {show: true, type: ['line', 'bar']},
+          // magicType : {show: true, type: ['line', 'bar']},
           dataZoom : {show: true},
         },
       },
