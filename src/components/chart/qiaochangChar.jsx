@@ -25,13 +25,34 @@ export class qiaochangChar extends Component {
 
   // 初始化图形的函数
   initBar() {
-    // const data =
     const config = {
-      title: {
-        text: 'Beijing AQI',
-      },
       tooltip: {
         trigger: 'axis',
+        // 触发框设置
+        formatter(params) {
+          console.log(params);
+          
+          // for text color
+          let res = `<div ">`;
+          res += `<strong>${params[0].name}</strong>`;
+          for (let i = 0, l = params.length; i < l; i += 1) {
+            if (params[i].seriesName === '价格') {
+            res += `<br/>${params[i].seriesName} : ${params[i].value}万元`;
+            }else {
+            res += `<br/>${params[i].seriesName} : ${params[i].value}%`;
+            }
+          }
+          res += '</div>';
+          return res;
+        },
+      },
+
+      // 图例
+      legend: {
+        // 图例位置
+        x: 'left',
+        // 图例数据
+        data: ['价格', '同比率', '环比率'],
       },
       xAxis: {
         data: qiaochangData.data.map(item => item[0]),
@@ -112,53 +133,59 @@ export class qiaochangChar extends Component {
           markLine: {
             silent: true,
           },
+          itemStyle: {
+            normal: {
+              color: '#2f78cc',
+              lineStyle: {
+                color: '#2f78cc',
+              },
+            },
+          },
         },
         {
-          name: '百分比(%)',
+          name: '同比率',
           type: 'line',
-          yAxisIndex:1,
+          yAxisIndex: 1,
           data: qiaochangData.dataLine.map(item => item[1]),
           markLine: {
             silent: true,
           },
           itemStyle: {
             normal: {
-              color: '#2ec7c9',
+              color: '#ad15ab',
               lineStyle: {
-                color: '#2ec7c9',
+                color: '#ad15ab',
               },
             },
           },
         },
         {
-          name: '百分比(%)',
+          name: '环比率',
           type: 'line',
-          yAxisIndex:1,
+          yAxisIndex: 1,
           data: qiaochangData.dataLine2.map(item => item[1]),
           markLine: {
             silent: true,
           },
           itemStyle: {
             normal: {
-              color: 'green',
+              color: '#f1d010',
               lineStyle: {
-                color: 'green',
+                color: '#f1d010',
               },
             },
           },
         },
       ],
     };
-    const myChart = echarts.init(document.getElementById('main'));
+    const myChart = echarts.init(document.getElementById('main2'));
     myChart.setOption(config);
   }
 
   render() {
-    console.log(qiaochangData.data);
-
     return (
       <div>
-        <div id="main" style={{ width: '800px', height: '400px' }} />
+        <div id="main2" style={{ width: '800px', height: '400px' ,margin:'50px auto'}} />
       </div>
     );
   }

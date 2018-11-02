@@ -7,16 +7,20 @@ import React from 'react';
 // 可滑动柱状图
 // import SlideChar from './components/chart/slideChar';
 // import SwitchChar from './components/chart/switchChar';
-import QiaoChangChar from './components/chart/qiaochangChar';
+import QiaoChar from './components/chart/qiaochangChar';
 
 function App() {
   return (
     <div>
       {/* <Barchart /> */}
       {/* <TreeChart /> */}
-      {/* <SlideChar />  */}
       {/* <SwitchChar />  */}
-      <QiaoChangChar />
+      {/* <div>
+        <SlideChar />
+      </div> */}
+      <div >
+        <QiaoChar />
+      </div>
     </div>
   );
 }
