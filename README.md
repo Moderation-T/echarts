@@ -1,4 +1,4 @@
-# echarts在react中的使用及具体实例
+# echarts 在 react 中的使用及具体实例
 
 ### 相关介绍
 
@@ -6,7 +6,8 @@
 
    /src/components/chart 中
 
-2. 然后在App.js中调用组件
+2. 然后在 App.js 中调用组件
 3. 想查看或关闭自行打开或解除相应注释
 4. 学习笔记 代码注解很多 可供参考学习
 
+[网上案例文档](http://gallery.echartsjs.com/editor.html?c=xB1XmPH9jb)

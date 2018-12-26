@@ -74,18 +74,18 @@ export class SlideReact extends Component {
           type: 'shadow',
         },
 
-        // 触发框设置
-        formatter(params) {
-          // for text color
-          const color = colorList[params[0].dataIndex];
-          let res = `<div style="color:${color}">`;
-          res += `<strong>${params[0].name}（万元）</strong>`;
-          for (let i = 0, l = params.length; i < l; i += 1) {
-            res += `<br/>${params[i].seriesName} : ${params[i].value}`;
-          }
-          res += '</div>';
-          return res;
-        },
+        // // 触发框设置
+        // formatter(params) {
+        //   // for text color
+        //   const color = colorList[params[0].dataIndex];
+        //   let res = `<div style="color:${color}">`;
+        //   res += `<strong>${params[0].name}（万元）</strong>`;
+        //   for (let i = 0, l = params.length; i < l; i += 1) {
+        //     res += `<br/>${params[i].seriesName} : ${params[i].value}`;
+        //   }
+        //   res += '</div>';
+        //   return res;
+        // },
       },
 
       // 图例

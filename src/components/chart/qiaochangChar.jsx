@@ -25,21 +25,31 @@ export class qiaochangChar extends Component {
 
   // 初始化图形的函数
   initBar() {
+    console.log(qiaochangData.data.map(item => item[0]));
+
     const config = {
       tooltip: {
         trigger: 'axis',
         // 触发框设置
         formatter(params) {
-          console.log(params);
-          
+          console.log(params[0].name);
+          console.log(qiaochangData.dataLine);
+
+          const tongbi = qiaochangData.dataLine.filter(item => {
+            console.log(item);
+
+            return item[0] === params[0].name;
+          });
+          console.log(tongbi[0][1]);
+
           // for text color
           let res = `<div ">`;
           res += `<strong>${params[0].name}</strong>`;
           for (let i = 0, l = params.length; i < l; i += 1) {
             if (params[i].seriesName === '价格') {
-            res += `<br/>${params[i].seriesName} : ${params[i].value}万元`;
-            }else {
-            res += `<br/>${params[i].seriesName} : ${params[i].value}%`;
+              res += `<br/>${params[i].seriesName} : ${params[i].value}万元<br/>同比${tongbi[0][1]}%`;
+            } else {
+              res += `<br/>${params[i].seriesName} : ${params[i].value}%`;
             }
           }
           res += '</div>';
@@ -53,6 +63,7 @@ export class qiaochangChar extends Component {
         x: 'left',
         // 图例数据
         data: ['价格', '同比率', '环比率'],
+        // selected: { 价格: true, 同比率: false, 环比率: false },
       },
       xAxis: {
         data: qiaochangData.data.map(item => item[0]),
@@ -185,7 +196,7 @@ export class qiaochangChar extends Component {
   render() {
     return (
       <div>
-        <div id="main2" style={{ width: '800px', height: '400px' ,margin:'50px auto'}} />
+        <div id="main2" style={{ width: '800px', height: '400px', margin: '50px auto' }} />
       </div>
     );
   }
